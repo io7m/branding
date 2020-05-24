@@ -1,0 +1,1 @@
+Minimalist article schema and XSLT stylesheet.

@@ -326,7 +326,7 @@
      units="px"
      showgrid="false"
      inkscape:document-rotation="0"
-     inkscape:current-layer="layer6"
+     inkscape:current-layer="layer1"
      inkscape:document-units="px"
      inkscape:cy="320.82163"
      inkscape:cx="792.26837"
@@ -358,7 +358,6 @@
     </rdf:RDF>
   </metadata>
   <g
-     sodipodi:insensitive="true"
      style="display:inline"
      id="layer1"
      inkscape:groupmode="layer"
@@ -371,14 +370,14 @@
        width="338.66666"
        x="0"
        y="0"
-       style="stroke-width:3.77953" />
+       style="stroke-width:3.77953;image-rendering:optimizeQuality" />
   </g>
   <g
-     sodipodi:insensitive="true"
-     style="display:inline;opacity:1;mix-blend-mode:overlay"
+     style="display:inline;opacity:0.50016392;mix-blend-mode:overlay"
      inkscape:label="flashes"
      id="layer3"
-     inkscape:groupmode="layer">
+     inkscape:groupmode="layer"
+     sodipodi:insensitive="true">
     <rect
        mask="url(#mask1037)"
        y="0"

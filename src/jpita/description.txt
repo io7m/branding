@@ -1,0 +1,1 @@
+Simple Java text alignment algorithms.

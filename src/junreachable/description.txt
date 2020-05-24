@@ -1,0 +1,1 @@
+Exception types for marking unreachable/unimplemented code.

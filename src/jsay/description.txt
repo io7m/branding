@@ -1,0 +1,1 @@
+Tiny command-line JMS text message sender.

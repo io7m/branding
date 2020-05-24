@@ -1,0 +1,1 @@
+Ancestor POM for io7m projects.

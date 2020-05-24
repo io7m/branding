@@ -26,4 +26,5 @@ do
   out.svg
   convert out.png out.jpg
   popd
+  mv "out/${name}/out.jpg" "out/${name}.jpg"
 done
