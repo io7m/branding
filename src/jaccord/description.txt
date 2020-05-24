@@ -1,0 +1,1 @@
+Java library and command-line tools to assist with musical analysis.

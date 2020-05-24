@@ -1,0 +1,1 @@
+Common CheckStyle rules for io7m projects.

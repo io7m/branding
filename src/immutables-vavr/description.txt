@@ -1,0 +1,1 @@
+A set of Immutables encodings for Vavr.
