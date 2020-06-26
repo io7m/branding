@@ -3,6 +3,7 @@ boxwood
 brooklime
 changelog
 checkstyle_rules
+claypot
 coffeepick
 epubsquash
 flail
@@ -66,5 +67,6 @@ readme
 scando
 smfj
 timehack6435126
+waxmill
 xstructural
 zeptoblog
