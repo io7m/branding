@@ -5,6 +5,7 @@ changelog
 checkstyle_rules
 claypot
 coffeepick
+datepicker
 epubsquash
 flail
 gtyrell
