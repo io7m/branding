@@ -8,6 +8,7 @@ claypot
 coffeepick
 datepicker
 epubsquash
+ethermaker
 flail
 gtyrell
 halite
