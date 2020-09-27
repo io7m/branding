@@ -6,6 +6,7 @@ changelog
 checkstyle_rules
 claypot
 coffeepick
+com.io7m.construction.icms
 datepicker
 epubsquash
 ethermaker
