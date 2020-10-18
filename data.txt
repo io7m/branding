@@ -15,6 +15,7 @@ gtyrell
 halite
 ieee754b16
 immutables-vavr
+ironstrata
 jaccord
 jade
 jaffirm
@@ -69,6 +70,7 @@ pallene
 primogenitor
 readme
 scando
+sigiltron
 smfj
 timehack6435126
 waxmill
