@@ -2,6 +2,7 @@ blackthorne
 bodyrecomp
 boxwood
 brooklime
+cedarbridge
 changelog
 checkstyle_rules
 claypot
@@ -68,6 +69,7 @@ opdsget
 openjdk-api-java-client
 pallene
 primogenitor
+prusa-i3-mk3s-profiles
 readme
 scando
 sigiltron
