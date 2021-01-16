@@ -1,0 +1,1 @@
+Percentage-passing JUnit 5 extension
