@@ -1,0 +1,1 @@
+Utility classes for XML string resources.
