@@ -11,6 +11,7 @@ com.io7m.construction.icms
 datepicker
 epubsquash
 ethermaker
+export.sh
 flail
 gtyrell
 halite
@@ -24,6 +25,7 @@ jbssio
 jcathinone
 jcoords
 jcoronado
+jdextrosa
 jequality
 jeucreader
 jfsm
@@ -55,8 +57,10 @@ jsx
 jtensors
 junreachable
 junsigned
+jvgm
 jwheatsheaf
 jxe
+jxtrand
 minisite
 modulechaser
 oakleaf
@@ -67,14 +71,19 @@ one.irradia.opds1_2
 one.irradia.opds2_0
 opdsget
 openjdk-api-java-client
+oxicoco
 pallene
+percentpass
 primogenitor
 prusa-i3-mk3s-profiles
 readme
 scando
 sigiltron
 smfj
+social.svg
+social.xsl
 timehack6435126
+wastebasket
 waxmill
 xstructural
 zeptoblog
