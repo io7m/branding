@@ -10,6 +10,7 @@ checkstyle_rules
 claypot
 coffeepick
 com.io7m.construction.icms
+com.io7m.music.kit.dust_yard
 datepicker
 epubsquash
 ethermaker
