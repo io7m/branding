@@ -28,6 +28,7 @@ jbssio
 jcathinone
 jcoords
 jcoronado
+jdeferthrow
 jdextrosa
 jequality
 jeucreader
