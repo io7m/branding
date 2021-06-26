@@ -19,7 +19,7 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="//svg:text[@id='projectTitle']/svg:tspan/svg:tspan/text()">
+  <xsl:template match="//svg:text[@id='projectTitle']/svg:tspan/text()">
     <xsl:value-of select="$projectName"/>
   </xsl:template>
 
