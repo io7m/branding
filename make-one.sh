@@ -21,6 +21,11 @@ projectName="${name}" \
 projectDescription="${PROJECT_DESCRIPTION}" \
 projectURL="${PROJECT_URL}" > "out/${name}/out.svg"
 
+if [ -f "src/${name}/cover.png" ]
+then
+  convert "src/${name}/cover.png" "out/${name}/cover.jpg"
+fi
+
 pushd "out/${name}"
 inkscape \
 --export-type=png \
