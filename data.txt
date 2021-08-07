@@ -5,6 +5,7 @@ blackthorne
 bodyrecomp
 boxwood
 brooklime
+cardant
 cedarbridge
 changelog
 checkstyle_rules
@@ -13,6 +14,7 @@ coffeepick
 com.io7m.construction.icms
 com.io7m.music.kit.dust_yard
 datepicker
+dixmont
 epubsquash
 ethermaker
 flail
@@ -93,4 +95,3 @@ wastebasket
 waxmill
 xstructural
 zeptoblog
-dixmont
