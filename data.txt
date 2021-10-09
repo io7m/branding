@@ -88,8 +88,6 @@ readme
 scando
 sigiltron
 smfj
-social.svg
-social.xsl
 timehack6435126
 wastebasket
 waxmill
