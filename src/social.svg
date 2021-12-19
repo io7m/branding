@@ -489,11 +489,11 @@
        d="M 0,127.66146 H 338.66666"
        style="display:inline;opacity:1;fill:none;stroke:#ffffff;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
-       style="display:inline;fill:none;stroke:#ffffff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.75"
+       style="display:inline;fill:none;stroke:#ffffff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.5"
        d="M 0,109.93437 H 338.66666"
        id="path1191-9" />
     <path
-       style="display:inline;fill:none;stroke:#ffffff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.75"
+       style="display:inline;fill:none;stroke:#ffffff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.5"
        d="M 0,135.59895 H 338.66666"
        id="path2094" />
   </g>
@@ -520,11 +520,11 @@
            style="font-family:DIN;-inkscape-font-specification:DIN;fill:#ffffff"
            id="tspan1266">SPIR-V Toolkit</tspan></tspan></text>
     <path
-       style="display:inline;fill:none;stroke:#ffffff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.75"
+       style="display:inline;fill:none;stroke:#ffffff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.5"
        d="M 0,143.80104 H 338.66666"
        id="path1191-0" />
     <path
-       style="display:inline;fill:none;stroke:#ffffff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.75"
+       style="display:inline;fill:none;stroke:#ffffff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.5"
        d="M 0,160.99896 H 338.66666"
        id="path1647" />
   </g>
@@ -553,11 +553,11 @@
            style="font-family:DIN;-inkscape-font-specification:DIN;text-anchor:end;fill:#ffffff"
            id="tspan1270">https://www.io7m.com/software/jwheatsheaf</tspan></tspan></text>
     <path
-       style="fill:none;stroke:#ffffff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.75"
+       style="fill:none;stroke:#ffffff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.5"
        d="M 0,8.3333333 H 338.66666"
        id="path1091" />
     <path
-       style="fill:none;stroke:#ffffff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.75"
+       style="fill:none;stroke:#ffffff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.5"
        d="M 0,34 H 338.66666"
        id="path1191" />
   </g>
