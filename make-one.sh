@@ -15,8 +15,8 @@ PROJECT_DESCRIPTION=$(cat "src/${name}/description.txt")
 mkdir -p "out/${name}"
 rsync -av "src/${name}/" "out/${name}/"
 saxon \
--xsl:src/social.xsl \
--s:src/social.svg \
+-xsl:src/social2.xsl \
+-s:src/social2.svg \
 projectName="${name}" \
 projectDescription="${PROJECT_DESCRIPTION}" \
 projectURL="${PROJECT_URL}" > "out/${name}/out.svg"
