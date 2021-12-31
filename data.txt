@@ -28,6 +28,7 @@ jaccord
 jade
 jaffirm
 jbssio
+jcamera
 jcathinone
 jcoords
 jcoronado
