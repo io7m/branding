@@ -62,6 +62,7 @@ jspatial
 jspearmint
 jspiel
 jsx
+jsycamore
 jtensors
 junreachable
 junsigned
