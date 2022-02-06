@@ -29,6 +29,7 @@ jaccord
 jade
 jaffirm
 jarabica
+jattribute
 jbssio
 jcamera
 jcathinone
