@@ -33,6 +33,7 @@ jattribute
 jbssio
 jcamera
 jcathinone
+jcolorspace
 jcoords
 jcoronado
 jdeferthrow
