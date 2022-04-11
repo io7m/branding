@@ -13,6 +13,7 @@ checkstyle_rules
 claypot
 coffeepick
 com.io7m.construction.icms
+com.io7m.music.kit.calais
 com.io7m.music.kit.dust_yard
 datepicker
 dixmont
@@ -78,6 +79,7 @@ mesquida
 minisite
 modulechaser
 oakleaf
+oatfield
 one.irradia.fieldrush
 one.irradia.http
 one.irradia.mime
