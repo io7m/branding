@@ -76,6 +76,7 @@ jvgm
 jwheatsheaf
 jxe
 jxtrand
+looseleaf
 mesquida
 minisite
 modulechaser
