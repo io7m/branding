@@ -6,6 +6,7 @@ bodyrecomp
 boxwood
 brooklime
 calino
+canonmill
 cardant
 cedarbridge
 certusine
