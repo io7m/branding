@@ -83,6 +83,7 @@ minisite
 modulechaser
 oakleaf
 oatfield
+oci-images
 one.irradia.fieldrush
 one.irradia.http
 one.irradia.mime
