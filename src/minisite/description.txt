@@ -1,1 +1,0 @@
-Static, single-page software project site generator.

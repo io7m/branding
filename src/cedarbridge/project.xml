@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <entry key="description">Cedarbridge message protocol definition language.</entry>
+  <entry key="source">https://pixabay.com/photos/bridge-park-garden-japanese-garden-53769/</entry>
+  <entry key="url">https://www.io7m.com/software/cedarbridge/</entry>
+  <entry key="books">documentation specification</entry>
+  <entry key="books.documentation.cover">documentation.png</entry>
+  <entry key="books.documentation.title">Cedarbridge User Manual</entry>
+  <entry key="books.specification.cover">specification.png</entry>
+  <entry key="books.specification.title">Cedarbridge Language Specification</entry>
+</properties>

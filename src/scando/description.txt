@@ -1,1 +1,0 @@
-Japicmp command-line wrapper for semantic versioning enforcement.

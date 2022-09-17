@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <entry key="description">3D texture file format.</entry>
+  <entry key="source">https://pixabay.com/photos/keppel-cbd-keppelport-morning-2039122/</entry>
+  <entry key="url">https://www.io7m.com/software/calino/</entry>
+  <entry key="books.documentation.cover">documentation.png</entry>
+  <entry key="books.documentation.title">Calino User Manual</entry>
+  <entry key="books.specification.cover">specification.png</entry>
+  <entry key="books.specification.title">Calino Specification</entry>
+</properties>

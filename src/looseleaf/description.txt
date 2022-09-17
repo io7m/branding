@@ -1,1 +1,0 @@
-Minimalist transactional HTTP key/value store.

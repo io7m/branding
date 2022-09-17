@@ -1,1 +1,0 @@
-Normalized fixed-point conversion functions.

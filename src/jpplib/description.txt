@@ -1,1 +1,0 @@
-An improved fork of the unmaintained jpplib package.

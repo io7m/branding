@@ -1,1 +1,0 @@
-Coffee-flavoured source code generation.

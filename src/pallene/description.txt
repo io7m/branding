@@ -1,1 +1,0 @@
-An ultra-minimal single-file static web server.

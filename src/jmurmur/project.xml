@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <entry key="description">Java implementation of the Murmur hash function.</entry>
+  <entry key="source">https://pixabay.com/photos/vault-architecture-256902/</entry>
+  <entry key="url">https://www.io7m.com/software/jmurmur/</entry>
+</properties>

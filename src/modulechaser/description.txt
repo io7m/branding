@@ -1,1 +1,0 @@
-JPMS modularization status reporting Maven plugin.

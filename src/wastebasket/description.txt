@@ -1,1 +1,0 @@
-Authenticated write-only HTTP store

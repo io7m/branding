@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <entry key="description">Authenticated write-only HTTP store.</entry>
+  <entry key="source">https://pixabay.com/photos/trashcan-garbage-recycle-bin-bin-570113/</entry>
+  <entry key="url">https://www.io7m.com/software/wastebasket/</entry>
+</properties>

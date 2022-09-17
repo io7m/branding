@@ -1,1 +1,0 @@
-Simple, fast, zero-allocation contract checking.

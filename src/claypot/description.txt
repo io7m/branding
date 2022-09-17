@@ -1,1 +1,0 @@
-JCommander conventions for io7m projects

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <entry key="description">Kotlin OPDS 1.2 parser API.</entry>
+  <entry key="source">https://pixabay.com/photos/library-books-knowledge-419254/</entry>
+  <entry key="url">https://www.github.com/irradia/one.irradia.opds1_2/</entry>
+</properties>

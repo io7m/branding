@@ -1,1 +1,0 @@
-OPDS feed retrieval API and command-line tools.

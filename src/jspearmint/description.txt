@@ -1,1 +1,0 @@
-SPIR-V API and command-line tools.

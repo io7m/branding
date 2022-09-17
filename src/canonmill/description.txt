@@ -1,1 +1,0 @@
-Directory-based Keystore implementation.

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <entry key="description">ACME client.</entry>
+  <entry key="source">https://pxhere.com/en/photo/1049031</entry>
+  <entry key="url">https://www.io7m.com/software/certusine/</entry>
+  <entry key="books">documentation</entry>
+  <entry key="books.documentation.cover">documentation.png</entry>
+  <entry key="books.documentation.title">Cedarbridge User Manual</entry>
+</properties>

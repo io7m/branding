@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <entry key="description">Java client for the AdoptOpenJDK API.</entry>
+  <entry key="source">https://pixabay.com/photos/coffee-beans-blue-red-caffeine-1599262/</entry>
+  <entry key="url">https://www.github.com/AdoptOpenJDK/openjdk-api-java-client/</entry>
+</properties>

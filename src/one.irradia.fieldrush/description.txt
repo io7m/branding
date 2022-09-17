@@ -1,1 +1,0 @@
-High-performance, low-allocation, type-safe, recovering stream JSON parser.
