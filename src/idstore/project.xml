@@ -4,4 +4,7 @@
   <entry key="description">Identity server.</entry>
   <entry key="source">https://pxhere.com/en/photo/1058787</entry>
   <entry key="url">https://www.io7m.com/software/idstore/</entry>
+  <entry key="books">documentation</entry>
+  <entry key="books.documentation.cover">documentation.png</entry>
+  <entry key="books.documentation.title">Idstore User Manual</entry>
 </properties>
