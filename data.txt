@@ -17,6 +17,7 @@ coffeepick
 com.io7m.construction.icms
 com.io7m.music.kit.calais
 com.io7m.music.kit.dust_yard
+cxbutton
 datepicker
 dixmont
 epubsquash
@@ -109,6 +110,7 @@ smfj
 taskrecorder
 timehack6435126
 trasco
+verdant
 wastebasket
 waxmill
 wendover
