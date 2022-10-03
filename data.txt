@@ -78,6 +78,7 @@ jtensors
 junreachable
 junsigned
 jvgm
+jvindicator
 jwheatsheaf
 jxe
 jxtrand
