@@ -27,6 +27,7 @@ genevan
 gtyrell
 halite
 historian
+icatiro
 idstore
 ieee754b16
 immutables-vavr
