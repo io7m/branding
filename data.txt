@@ -64,6 +64,7 @@ jpplib
 jproperties
 jptbox
 jpuddle
+jqpage
 jrai
 jranges
 jregions
