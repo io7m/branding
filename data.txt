@@ -20,6 +20,7 @@ com.io7m.music.kit.dust_yard
 cxbutton
 datepicker
 dixmont
+eigion
 epubsquash
 ethermaker
 flail

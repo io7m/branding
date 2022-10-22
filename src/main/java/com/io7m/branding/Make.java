@@ -14,10 +14,12 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+package com.io7m.branding;
+
+import net.sf.saxon.Transform;
+
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageOp;
 import java.io.IOException;
 import java.net.URI;
 import java.nio.file.Files;
@@ -39,10 +41,14 @@ import java.util.logging.Logger;
 import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
+/**
+ * Branding image generator.
+ */
+
 public final class Make
 {
   private static final Logger LOG =
-    Logger.getLogger("Make");
+    Logger.getLogger("com.io7m.branding.Make");
 
   private Make()
   {
@@ -216,9 +222,14 @@ public final class Make
       throws Exception
     {
       this.dirSource =
-        Paths.get("src").resolve(this.projectName).toAbsolutePath();
+        Paths.get("src")
+          .resolve("projects")
+          .resolve(this.projectName)
+          .toAbsolutePath();
       this.dirOutput =
-        Paths.get("output").resolve(this.projectName).toAbsolutePath();
+        Paths.get("output")
+          .resolve(this.projectName)
+          .toAbsolutePath();
       this.file =
         this.dirSource.resolve("project.xml").toAbsolutePath();
       this.srcIconOverlay =
@@ -258,7 +269,7 @@ public final class Make
     {
       this.info("generating icon");
       Files.copy(this.srcIcon, this.outIcon, REPLACE_EXISTING);
-      this.generateIconPNG(
+      generateIconPNG(
         this.srcIconOverlay,
         this.outIcon,
         this.outIconGenerated
@@ -266,11 +277,11 @@ public final class Make
       Files.move(this.outIconGenerated, this.outIcon, REPLACE_EXISTING);
     }
 
-    private void generateIconPNG(
+    private static void generateIconPNG(
       final Path srcIconOverlay,
       final Path srcIcon,
       final Path outPNG)
-      throws IOException, InterruptedException
+      throws IOException
     {
       final var image =
         new BufferedImage(64, 64, TYPE_INT_ARGB);
@@ -372,28 +383,16 @@ public final class Make
     private void generateBookCoverSVG(
       final Book book,
       final Path outSVG)
-      throws IOException, InterruptedException
     {
-      final var arguments =
-        List.of(
-          "saxon",
-          "-xsl:src/book_cover.xsl",
-          "-s:src/book_cover.svg",
-          "projectName=%s".formatted(this.project.name),
-          "projectDescription=%s".formatted(book.title)
-        );
+      final var arguments = new String[]{
+        "-xsl:src/book_cover.xsl",
+        "-s:src/book_cover.svg",
+        "-o:%s".formatted(outSVG.toFile()),
+        "projectName=%s".formatted(this.project.name),
+        "projectDescription=%s".formatted(book.title),
+      };
 
-      final var proc =
-        new ProcessBuilder()
-          .command(arguments)
-          .redirectOutput(outSVG.toFile())
-          .start();
-
-      final var exitCode = proc.waitFor();
-      if (exitCode != 0) {
-        this.error("saxon: exited with code %d", exitCode);
-        throw new IOException("Saxon failed.");
-      }
+      Transform.main(arguments);
     }
 
     private void generateSocialImage()
@@ -457,31 +456,27 @@ public final class Make
     }
 
     private void generateSocialImageSVG()
-      throws IOException, InterruptedException
     {
-      final var arguments =
-        List.of(
-          "saxon",
-          "-xsl:src/social3.xsl",
-          "-s:src/social3.svg",
-          "projectName=%s".formatted(this.project.name),
-          "projectDescription=%s".formatted(this.project.description),
-          "projectURL=%s".formatted(this.project.url)
-        );
+      final var arguments = new String[]{
+        "-xsl:src/social3.xsl",
+        "-s:src/social3.svg",
+        "-o:%s".formatted(this.outBackgroundSVG.toFile()),
+        "projectName=%s".formatted(this.project.name),
+        "projectDescription=%s".formatted(this.project.description),
+        "projectURL=%s".formatted(this.project.url),
+      };
 
-      final var proc =
-        new ProcessBuilder()
-          .command(arguments)
-          .redirectOutput(this.outBackgroundSVG.toFile())
-          .start();
-
-      final var exitCode = proc.waitFor();
-      if (exitCode != 0) {
-        this.error("saxon: exited with code %d", exitCode);
-        throw new IOException("Saxon failed.");
-      }
+      Transform.main(arguments);
     }
   }
+
+  /**
+   * The main entry point.
+   *
+   * @param args Command-line arguments
+   *
+   * @throws Exception On errors
+   */
 
   public static void main(
     final String[] args)
