@@ -25,6 +25,7 @@ epubsquash
 ethermaker
 flail
 genevan
+ghrepostools
 gtyrell
 halite
 historian
