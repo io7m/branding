@@ -116,6 +116,7 @@ taskrecorder
 timehack6435126
 trasco
 verdant
+verona
 wastebasket
 waxmill
 wendover
