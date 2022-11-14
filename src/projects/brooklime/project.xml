@@ -4,4 +4,7 @@
   <entry key="description">Command-line Nexus Pro interface.</entry>
   <entry key="source">https://commons.wikimedia.org/wiki/File:Veronica_americana_5496922.jpg</entry>
   <entry key="url">https://www.io7m.com/software/brooklime/</entry>
+  <entry key="books">documentation</entry>
+  <entry key="books.documentation.cover">documentation.png</entry>
+  <entry key="books.documentation.title">Brooklime User Manual</entry>
 </properties>
