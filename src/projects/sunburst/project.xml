@@ -4,4 +4,7 @@
   <entry key="description">Asset package system.</entry>
   <entry key="source">https://pxhere.com/en/photo/1262186</entry>
   <entry key="url">https://www.io7m.com/software/sunburst/</entry>
+  <entry key="books">documentation</entry>
+  <entry key="books.documentation.cover">documentation.png</entry>
+  <entry key="books.documentation.title">Sunburst User Manual</entry>
 </properties>
