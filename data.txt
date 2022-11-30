@@ -107,6 +107,7 @@ percentpass
 portero
 primogenitor
 prusa-i3-mk3s-profiles
+quixote
 readme
 redmesa
 rivershark
