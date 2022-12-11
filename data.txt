@@ -86,6 +86,7 @@ jvindicator
 jwheatsheaf
 jxe
 jxtrand
+lanark
 looseleaf
 medrina
 mesquida
