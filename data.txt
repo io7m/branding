@@ -112,6 +112,7 @@ prusa-i3-mk3s-profiles
 quixote
 readme
 redmesa
+repetoir
 rivershark
 scando
 sigiltron
