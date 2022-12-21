@@ -19,6 +19,7 @@ com.io7m.music.kit.calais
 com.io7m.music.kit.dust_yard
 cxbutton
 datepicker
+digal
 dixmont
 eigion
 epubsquash
