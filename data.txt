@@ -12,6 +12,7 @@ cedarbridge
 certusine
 changelog
 checkstyle_rules
+chione
 claypot
 coffeepick
 com.io7m.construction.icms
@@ -25,6 +26,7 @@ eigion
 epubsquash
 ethermaker
 flail
+gatwick
 genevan
 ghrepostools
 gtyrell
