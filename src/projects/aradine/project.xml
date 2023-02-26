@@ -4,4 +4,8 @@
   <entry key="description">Modular programmable synthesis.</entry>
   <entry key="source">https://pixabay.com/photos/sunset-desert-dunes-sand-5978175/</entry>
   <entry key="url">https://www.io7m.com/software/aradine/</entry>
+
+  <entry key="books">documentation</entry>
+  <entry key="books.documentation.cover">documentation.png</entry>
+  <entry key="books.documentation.title">Aradine User Manual</entry>
 </properties>
