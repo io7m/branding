@@ -4,4 +4,7 @@
   <entry key="description">Role/Attribute mandatory access control.</entry>
   <entry key="source">https://pixabay.com/photos/door-door-lock-castle-old-door-2435978</entry>
   <entry key="url">https://www.io7m.com/software/medrina/</entry>
+  <entry key="books">documentation</entry>
+  <entry key="books.documentation.cover">documentation.png</entry>
+  <entry key="books.documentation.title">Medrina User Manual</entry>
 </properties>

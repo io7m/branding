@@ -20,7 +20,9 @@ import net.sf.saxon.Transform;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -39,6 +41,7 @@ import java.util.concurrent.Executors;
 import java.util.logging.Logger;
 
 import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 /**
@@ -265,7 +268,7 @@ public final class Make
     }
 
     private void generateIcon()
-      throws IOException, InterruptedException
+      throws IOException
     {
       this.info("generating icon");
       Files.copy(this.srcIcon, this.outIcon, REPLACE_EXISTING);
@@ -343,12 +346,30 @@ public final class Make
         new ProcessBuilder()
           .command(arguments)
           .directory(this.dirOutput.toFile())
+          .redirectErrorStream(true)
           .start();
+
+      final var readerThread = new Thread(() -> {
+        try (var reader = new BufferedReader(
+          new InputStreamReader(proc.getInputStream(), UTF_8)
+        )) {
+          while (proc.isAlive()) {
+            final var line = reader.readLine();
+            if (line == null) {
+              return;
+            }
+            this.info("generateBookCoverJPEG: inkscape: %s", line);
+          }
+        } catch (final IOException e) {
+          this.error("generateBookCoverJPEG: inkscape: %s", e);
+        }
+      });
+      readerThread.start();
 
       final var exitCode = proc.waitFor();
       if (exitCode != 0) {
-        this.error("convert: exited with code %d", exitCode);
-        throw new IOException("convert failed.");
+        this.error("generateBookCoverJPEG: convert: exited with code %d", exitCode);
+        throw new IOException("generateBookCoverJPEG: convert failed.");
       }
     }
 
@@ -371,12 +392,30 @@ public final class Make
         new ProcessBuilder()
           .command(arguments)
           .directory(this.dirOutput.toFile())
+          .redirectErrorStream(true)
           .start();
+
+      final var readerThread = new Thread(() -> {
+        try (var reader = new BufferedReader(
+          new InputStreamReader(proc.getInputStream(), UTF_8)
+        )) {
+          while (proc.isAlive()) {
+            final var line = reader.readLine();
+            if (line == null) {
+              return;
+            }
+            this.info("generateBookCoverPNG: inkscape: %s", line);
+          }
+        } catch (final IOException e) {
+          this.error("generateBookCoverPNG: inkscape: %s", e);
+        }
+      });
+      readerThread.start();
 
       final var exitCode = proc.waitFor();
       if (exitCode != 0) {
-        this.error("inkscape: exited with code %d", exitCode);
-        throw new IOException("inkscape failed.");
+        this.error("generateBookCoverPNG: inkscape: exited with code %d", exitCode);
+        throw new IOException("generateBookCoverPNG: inkscape failed.");
       }
     }
 
@@ -420,12 +459,30 @@ public final class Make
         new ProcessBuilder()
           .command(arguments)
           .directory(this.dirOutput.toFile())
+          .redirectErrorStream(true)
           .start();
+
+      final var readerThread = new Thread(() -> {
+        try (var reader = new BufferedReader(
+          new InputStreamReader(proc.getInputStream(), UTF_8)
+        )) {
+          while (proc.isAlive()) {
+            final var line = reader.readLine();
+            if (line == null) {
+              return;
+            }
+            this.info("generateSocialImageJPEG: convert: %s", line);
+          }
+        } catch (final IOException e) {
+          this.error("generateSocialImageJPEG: convert: %s", e);
+        }
+      });
+      readerThread.start();
 
       final var exitCode = proc.waitFor();
       if (exitCode != 0) {
-        this.error("convert: exited with code %d", exitCode);
-        throw new IOException("convert failed.");
+        this.error("generateSocialImageJPEG: convert: exited with code %d", exitCode);
+        throw new IOException("generateSocialImageJPEG: convert failed.");
       }
     }
 
@@ -446,12 +503,30 @@ public final class Make
         new ProcessBuilder()
           .command(arguments)
           .directory(this.dirOutput.toFile())
+          .redirectErrorStream(true)
           .start();
+
+      final var readerThread = new Thread(() -> {
+        try (var reader = new BufferedReader(
+          new InputStreamReader(proc.getInputStream(), UTF_8)
+        )) {
+          while (proc.isAlive()) {
+            final var line = reader.readLine();
+            if (line == null) {
+              return;
+            }
+            this.info("generateSocialImagePNG: inkscape: %s", line);
+          }
+        } catch (final IOException e) {
+          this.error("generateSocialImagePNG: inkscape: %s", e);
+        }
+      });
+      readerThread.start();
 
       final var exitCode = proc.waitFor();
       if (exitCode != 0) {
-        this.error("inkscape: exited with code %d", exitCode);
-        throw new IOException("inkscape failed.");
+        this.error("generateSocialImagePNG: inkscape: exited with code %d", exitCode);
+        throw new IOException("generateSocialImagePNG: inkscape failed.");
       }
     }
 
