@@ -31,6 +31,7 @@ genevan
 ghrepostools
 gtyrell
 halite
+hibiscus
 historian
 icatiro
 idstore
@@ -96,6 +97,7 @@ mesquida
 mime2045
 minisite
 modulechaser
+naranja
 oakleaf
 oatfield
 oci-images
