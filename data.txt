@@ -35,6 +35,7 @@ hibiscus
 historian
 icatiro
 idstore
+idstore_gui
 ieee754b16
 immutables-vavr
 ironstrata
@@ -132,7 +133,7 @@ verona
 wastebasket
 waxmill
 wendover
+xoanon
 xstructural
 york-font
 zeptoblog
-xoanon
