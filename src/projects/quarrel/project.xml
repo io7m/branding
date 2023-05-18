@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <entry key="description">Strict, opinionated, typed command-line argument parser.</entry>
+  <entry key="source">https://pxhere.com/en/photo/1438013</entry>
+  <entry key="url">https://www.io7m.com/software/anethum/</entry>
+  <entry key="books">documentation</entry>
+  <entry key="books.documentation.cover">documentation.png</entry>
+  <entry key="books.documentation.title">Quarrel User Manual</entry>
+</properties>
