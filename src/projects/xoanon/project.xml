@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-  <entry key="description">JUnit 5 JavaFX extension</entry>
-  <entry key="source">https://pxhere.com/en/photo/578434</entry>
+  <entry key="description">JUnit 5 JavaFX test harness</entry>
+  <entry key="source">https://pixabay.com/photos/at-night-station-city-train-eve-4868299/</entry>
   <entry key="url">https://www.io7m.com/software/xoanon/</entry>
 </properties>
