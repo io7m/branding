@@ -36,6 +36,7 @@ historian
 icatiro
 idstore
 idstore_gui
+idstore_trafficgen
 ieee754b16
 immutables-vavr
 ironstrata
@@ -113,6 +114,7 @@ oxicoco
 pallene
 percentpass
 portero
+postservice
 primogenitor
 prusa-i3-mk3s-profiles
 quarrel
