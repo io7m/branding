@@ -129,6 +129,7 @@ seltzer
 sigiltron
 smfj
 sunburst
+tabla
 taskrecorder
 timehack6435126
 trasco
@@ -141,5 +142,5 @@ wendover
 xoanon
 xstructural
 york-font
-zeptoblog
 zelador
+zeptoblog
