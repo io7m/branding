@@ -101,6 +101,7 @@ mime2045
 minisite
 modulechaser
 naranja
+northpike
 oakleaf
 oatfield
 oci-images
