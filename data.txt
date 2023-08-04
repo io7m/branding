@@ -54,6 +54,7 @@ jcoords
 jcoronado
 jdeferthrow
 jdextrosa
+jdownload
 jequality
 jeucreader
 jfsm
