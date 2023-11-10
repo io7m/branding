@@ -19,6 +19,9 @@ package com.io7m.branding;
 import net.sf.saxon.Transform;
 
 import javax.imageio.ImageIO;
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -175,9 +178,10 @@ public final class Make
     private Path outBackgroundSVG;
     private Path outBackgroundGen;
     private Path srcIcon;
-    private Path outIcon;
-    private Path outIconGenerated;
-    private Path srcIconOverlay;
+    private Path outIcon32;
+    private Path outIcon64;
+    private Path outIcon128;
+    private Path srcEmblem;
 
     private TaskOne(
       final String inProject,
@@ -235,8 +239,9 @@ public final class Make
           .toAbsolutePath();
       this.file =
         this.dirSource.resolve("project.xml").toAbsolutePath();
-      this.srcIconOverlay =
-        Paths.get("src").resolve("io7mOverlay.png").toAbsolutePath();
+
+      this.srcEmblem =
+        Paths.get("src").resolve("emblem18.png");
       this.srcIcon =
         this.dirSource.resolve("icon.png");
       this.srcBackground =
@@ -249,10 +254,14 @@ public final class Make
         this.dirOutput.resolve("background.jpg");
       this.outBackgroundSVG =
         this.dirOutput.resolve("background.svg");
-      this.outIcon =
-        this.dirOutput.resolve("icon.png");
-      this.outIconGenerated =
-        this.dirOutput.resolve("icon_generated.png");
+
+      this.outIcon32 =
+        this.dirOutput.resolve("icon32.png");
+      this.outIcon64 =
+        this.dirOutput.resolve("icon64.png");
+      this.outIcon128 =
+        this.dirOutput.resolve("icon128.png");
+
       this.project =
         Project.load(this.projectName, this.file);
 
@@ -264,38 +273,98 @@ public final class Make
         this.generateBookCover(book);
       }
 
-      this.generateIcon();
+      this.generateIcons();
     }
 
-    private void generateIcon()
+    private void generateIcon32()
       throws IOException
     {
-      this.info("generating icon");
-      Files.copy(this.srcIcon, this.outIcon, REPLACE_EXISTING);
+      this.info("generating 32x32 icon");
       generateIconPNG(
-        this.srcIconOverlay,
-        this.outIcon,
-        this.outIconGenerated
+        32,
+        this.srcEmblem,
+        this.srcIcon,
+        this.outIcon32
       );
-      Files.move(this.outIconGenerated, this.outIcon, REPLACE_EXISTING);
+    }
+
+    private void generateIcon64()
+      throws IOException
+    {
+      this.info("generating 64x64 icon");
+      generateIconPNG(
+        64,
+        this.srcEmblem,
+        this.srcIcon,
+        this.outIcon64
+      );
+    }
+
+    private void generateIcon128()
+      throws IOException
+    {
+      this.info("generating 128x128 icon");
+      generateIconPNG(
+        128,
+        this.srcEmblem,
+        this.srcIcon,
+        this.outIcon128
+      );
+    }
+
+    private void generateIcons()
+      throws IOException
+    {
+      this.info("generating icons");
+      this.generateIcon32();
+      this.generateIcon64();
+      this.generateIcon128();
     }
 
     private static void generateIconPNG(
-      final Path srcIconOverlay,
+      final int size,
+      final Path srcEmblem,
       final Path srcIcon,
       final Path outPNG)
       throws IOException
     {
       final var image =
-        new BufferedImage(64, 64, TYPE_INT_ARGB);
+        new BufferedImage(size, size, TYPE_INT_ARGB);
       final var srcImage =
         ImageIO.read(srcIcon.toFile());
-      final var srcImageOverlay =
-        ImageIO.read(srcIconOverlay.toFile());
+      final var srcEmblemImage =
+        ImageIO.read(srcEmblem.toFile());
 
-      final var graphics = image.createGraphics();
-      graphics.drawImage(srcImage, 0, 0, null);
-      graphics.drawImage(srcImageOverlay, 0, 0, null);
+      final var gimage = image.createGraphics();
+      gimage.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+      gimage.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+      gimage.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+      gimage.drawImage(srcImage, 0, 0, size, size, null);
+      gimage.dispose();
+
+      final var gline0 = image.createGraphics();
+      gline0.setColor(Color.BLACK);
+      gline0.drawLine(0, 0, size, 0);
+      gline0.drawLine(0, 0, 0, size);
+      gline0.drawLine(0, size-1, size-1, size-1);
+      gline0.drawLine(size-1, 0, size-1, size-1);
+      gline0.dispose();
+
+      final var gline1 = image.createGraphics();
+      gline1.setColor(Color.WHITE);
+      gline1.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
+      gline1.drawLine(1, 1, size, 1);
+      gline1.drawLine(1, 1, 1, size);
+      gline1.drawLine(1, size-2, size-2, size-2);
+      gline1.drawLine(size-2, 1, size-2, size-2);
+      gline1.dispose();
+
+      final var gemblem = image.createGraphics();
+      gemblem.translate(size, size);
+      gemblem.translate(-4, -4);
+      gemblem.translate(-18, -18);
+      gemblem.drawImage(srcEmblemImage, 0, 0, 18, 18, null);
+      gemblem.dispose();
 
       ImageIO.write(image, "PNG", outPNG.toFile());
     }
