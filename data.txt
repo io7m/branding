@@ -103,6 +103,7 @@ minisite
 modulechaser
 naranja
 northpike
+northpike.packaging
 oakleaf
 oatfield
 oci-images
