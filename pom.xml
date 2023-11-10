@@ -8,7 +8,7 @@
   <parent>
     <groupId>com.io7m.primogenitor</groupId>
     <artifactId>com.io7m.primogenitor.full</artifactId>
-    <version>7.1.1</version>
+    <version>8.1.0</version>
   </parent>
 
   <groupId>com.io7m.branding</groupId>
@@ -22,6 +22,7 @@
 
   <properties>
     <io7m.api.previousVersion>0.0.1</io7m.api.previousVersion>
+    <mdep.analyze.skip>true</mdep.analyze.skip>
   </properties>
 
   <licenses>
@@ -77,6 +78,11 @@
       <groupId>net.sf.saxon</groupId>
       <artifactId>Saxon-HE</artifactId>
       <version>11.4</version>
+    </dependency>
+    <dependency>
+      <groupId>net.ifok.image</groupId>
+      <artifactId>image4j</artifactId>
+      <version>0.7.2</version>
     </dependency>
   </dependencies>
 

@@ -16,6 +16,8 @@
 
 package com.io7m.branding;
 
+import net.ifok.image.image4j.codec.ico.ICOEncoder;
+import net.ifok.image.image4j.codec.ico.ICOImage;
 import net.sf.saxon.Transform;
 
 import javax.imageio.ImageIO;
@@ -182,6 +184,9 @@ public final class Make
     private Path outIcon64;
     private Path outIcon128;
     private Path srcEmblem;
+    private Path outIcon48;
+    private Path outIcon16;
+    private Path outIco;
 
     private TaskOne(
       final String inProject,
@@ -255,8 +260,14 @@ public final class Make
       this.outBackgroundSVG =
         this.dirOutput.resolve("background.svg");
 
+      this.outIco =
+        this.dirOutput.resolve("icon.ico");
+      this.outIcon16 =
+        this.dirOutput.resolve("icon16.png");
       this.outIcon32 =
         this.dirOutput.resolve("icon32.png");
+      this.outIcon48 =
+        this.dirOutput.resolve("icon48.png");
       this.outIcon64 =
         this.dirOutput.resolve("icon64.png");
       this.outIcon128 =
@@ -300,6 +311,18 @@ public final class Make
       );
     }
 
+    private void generateIcon48()
+      throws IOException
+    {
+      this.info("generating 48x48 icon");
+      generateIconPNG(
+        48,
+        this.srcEmblem,
+        this.srcIcon,
+        this.outIcon48
+      );
+    }
+
     private void generateIcon128()
       throws IOException
     {
@@ -317,8 +340,55 @@ public final class Make
     {
       this.info("generating icons");
       this.generateIcon32();
+      this.generateIcon48();
       this.generateIcon64();
       this.generateIcon128();
+      this.generateIcon16();
+
+      this.generateIco();
+    }
+
+    private void generateIco()
+      throws IOException
+    {
+      final var images =
+        List.of(
+          ImageIO.read(this.outIcon128.toFile()),
+          ImageIO.read(this.outIcon48.toFile()),
+          ImageIO.read(this.outIcon32.toFile()),
+          ImageIO.read(this.outIcon16.toFile())
+        );
+
+      ICOEncoder.write(images, this.outIco.toFile());
+    }
+
+    private void generateIcon16()
+      throws IOException
+    {
+      this.info("generating 16x16 icon");
+      scaleDownIcon(
+        16,
+        this.outIcon32,
+        this.outIcon16
+      );
+    }
+
+    private static void scaleDownIcon(
+      final int size,
+      final Path srcIcon,
+      final Path outIcon)
+      throws IOException
+    {
+      final var image =
+        new BufferedImage(size, size, TYPE_INT_ARGB);
+      final var srcImage =
+        ImageIO.read(srcIcon.toFile());
+
+      final var gimage = image.createGraphics();
+      gimage.drawImage(srcImage, 0, 0, size, size, null);
+      gimage.dispose();
+
+      ImageIO.write(image, "PNG", outIcon.toFile());
     }
 
     private static void generateIconPNG(
@@ -336,9 +406,15 @@ public final class Make
         ImageIO.read(srcEmblem.toFile());
 
       final var gimage = image.createGraphics();
-      gimage.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-      gimage.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-      gimage.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+      gimage.setRenderingHint(
+        RenderingHints.KEY_RENDERING,
+        RenderingHints.VALUE_RENDER_QUALITY);
+      gimage.setRenderingHint(
+        RenderingHints.KEY_ANTIALIASING,
+        RenderingHints.VALUE_ANTIALIAS_ON);
+      gimage.setRenderingHint(
+        RenderingHints.KEY_INTERPOLATION,
+        RenderingHints.VALUE_INTERPOLATION_BILINEAR);
       gimage.drawImage(srcImage, 0, 0, size, size, null);
       gimage.dispose();
 
@@ -346,17 +422,19 @@ public final class Make
       gline0.setColor(Color.BLACK);
       gline0.drawLine(0, 0, size, 0);
       gline0.drawLine(0, 0, 0, size);
-      gline0.drawLine(0, size-1, size-1, size-1);
-      gline0.drawLine(size-1, 0, size-1, size-1);
+      gline0.drawLine(0, size - 1, size - 1, size - 1);
+      gline0.drawLine(size - 1, 0, size - 1, size - 1);
       gline0.dispose();
 
       final var gline1 = image.createGraphics();
       gline1.setColor(Color.WHITE);
-      gline1.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
+      gline1.setComposite(AlphaComposite.getInstance(
+        AlphaComposite.SRC_OVER,
+        0.5f));
       gline1.drawLine(1, 1, size, 1);
       gline1.drawLine(1, 1, 1, size);
-      gline1.drawLine(1, size-2, size-2, size-2);
-      gline1.drawLine(size-2, 1, size-2, size-2);
+      gline1.drawLine(1, size - 2, size - 2, size - 2);
+      gline1.drawLine(size - 2, 1, size - 2, size - 2);
       gline1.dispose();
 
       final var gemblem = image.createGraphics();
@@ -437,7 +515,9 @@ public final class Make
 
       final var exitCode = proc.waitFor();
       if (exitCode != 0) {
-        this.error("generateBookCoverJPEG: convert: exited with code %d", exitCode);
+        this.error(
+          "generateBookCoverJPEG: convert: exited with code %d",
+          exitCode);
         throw new IOException("generateBookCoverJPEG: convert failed.");
       }
     }
@@ -483,7 +563,9 @@ public final class Make
 
       final var exitCode = proc.waitFor();
       if (exitCode != 0) {
-        this.error("generateBookCoverPNG: inkscape: exited with code %d", exitCode);
+        this.error(
+          "generateBookCoverPNG: inkscape: exited with code %d",
+          exitCode);
         throw new IOException("generateBookCoverPNG: inkscape failed.");
       }
     }
@@ -550,7 +632,9 @@ public final class Make
 
       final var exitCode = proc.waitFor();
       if (exitCode != 0) {
-        this.error("generateSocialImageJPEG: convert: exited with code %d", exitCode);
+        this.error(
+          "generateSocialImageJPEG: convert: exited with code %d",
+          exitCode);
         throw new IOException("generateSocialImageJPEG: convert failed.");
       }
     }
@@ -594,7 +678,9 @@ public final class Make
 
       final var exitCode = proc.waitFor();
       if (exitCode != 0) {
-        this.error("generateSocialImagePNG: inkscape: exited with code %d", exitCode);
+        this.error(
+          "generateSocialImagePNG: inkscape: exited with code %d",
+          exitCode);
         throw new IOException("generateSocialImagePNG: inkscape failed.");
       }
     }
