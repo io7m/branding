@@ -4,4 +4,8 @@
   <entry key="description">Continuous integration.</entry>
   <entry key="source">https://pixabay.com/photos/way-sky-clouds-street-forest-7642285/</entry>
   <entry key="url">https://www.io7m.com/software/northpike/</entry>
+
+  <entry key="icons">agent shell</entry>
+  <entry key="icons.agent.file">iconAgent.png</entry>
+  <entry key="icons.shell.file">iconShell.png</entry>
 </properties>

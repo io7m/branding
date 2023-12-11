@@ -76,11 +76,23 @@ public final class Make
     }
   }
 
+  private record Icon(
+    String id,
+    String image)
+  {
+    private Icon
+    {
+      Objects.requireNonNull(id, "id");
+      Objects.requireNonNull(image, "image");
+    }
+  }
+
   private record Project(
     String name,
     String description,
     URI imageSource,
     URI url,
+    List<Icon> icons,
     List<Book> books)
   {
     private Project
@@ -89,6 +101,7 @@ public final class Make
       Objects.requireNonNull(description, "description");
       Objects.requireNonNull(imageSource, "imageSource");
       Objects.requireNonNull(url, "url");
+      Objects.requireNonNull(icons, "icons");
       Objects.requireNonNull(books, "books");
     }
 
@@ -156,11 +169,27 @@ public final class Make
         );
       }
 
+      final var iconIds =
+        list(file, props, "icons");
+      final var icons =
+        new ArrayList<Icon>(iconIds.size());
+
+      icons.add(new Icon("icon", "icon.png"));
+      for (final var iconId : iconIds) {
+        icons.add(
+          new Icon(
+            iconId,
+            require(file, props, "icons.%s.file".formatted(iconId))
+          )
+        );
+      }
+
       return new Project(
         name,
         require(file, props, "description"),
         requireURI(file, props, "source"),
         requireURI(file, props, "url"),
+        icons,
         books
       );
     }
@@ -179,14 +208,7 @@ public final class Make
     private Path outBackgroundJPEG;
     private Path outBackgroundSVG;
     private Path outBackgroundGen;
-    private Path srcIcon;
-    private Path outIcon32;
-    private Path outIcon64;
-    private Path outIcon128;
     private Path srcEmblem;
-    private Path outIcon48;
-    private Path outIcon16;
-    private Path outIco;
 
     private TaskOne(
       final String inProject,
@@ -247,8 +269,6 @@ public final class Make
 
       this.srcEmblem =
         Paths.get("src").resolve("emblem18.png");
-      this.srcIcon =
-        this.dirSource.resolve("icon.png");
       this.srcBackground =
         this.dirSource.resolve("background.png");
       this.outBackground =
@@ -260,19 +280,6 @@ public final class Make
       this.outBackgroundSVG =
         this.dirOutput.resolve("background.svg");
 
-      this.outIco =
-        this.dirOutput.resolve("icon.ico");
-      this.outIcon16 =
-        this.dirOutput.resolve("icon16.png");
-      this.outIcon32 =
-        this.dirOutput.resolve("icon32.png");
-      this.outIcon48 =
-        this.dirOutput.resolve("icon48.png");
-      this.outIcon64 =
-        this.dirOutput.resolve("icon64.png");
-      this.outIcon128 =
-        this.dirOutput.resolve("icon128.png");
-
       this.project =
         Project.load(this.projectName, this.file);
 
@@ -283,94 +290,43 @@ public final class Make
       for (final var book : this.project.books) {
         this.generateBookCover(book);
       }
-
-      this.generateIcons();
+      for (final var icon : this.project.icons) {
+        this.generateIcon(icon);
+      }
     }
 
-    private void generateIcon32()
+    private void generateIcon(
+      final Icon icon)
       throws IOException
     {
-      this.info("generating 32x32 icon");
-      generateIconPNG(
-        32,
-        this.srcEmblem,
-        this.srcIcon,
-        this.outIcon32
-      );
-    }
+      this.info("generating icons for %s", icon.id);
 
-    private void generateIcon64()
-      throws IOException
-    {
-      this.info("generating 64x64 icon");
-      generateIconPNG(
-        64,
-        this.srcEmblem,
-        this.srcIcon,
-        this.outIcon64
-      );
-    }
+      final var sizes =
+        List.of(16, 32, 48, 64, 128);
 
-    private void generateIcon48()
-      throws IOException
-    {
-      this.info("generating 48x48 icon");
-      generateIconPNG(
-        48,
-        this.srcEmblem,
-        this.srcIcon,
-        this.outIcon48
-      );
-    }
+      final var created =
+        new ArrayList<BufferedImage>();
 
-    private void generateIcon128()
-      throws IOException
-    {
-      this.info("generating 128x128 icon");
-      generateIconPNG(
-        128,
-        this.srcEmblem,
-        this.srcIcon,
-        this.outIcon128
-      );
-    }
+      for (final var size : sizes) {
+        this.info("generating %dx%d icon for %s", size, size, icon.id);
 
-    private void generateIcons()
-      throws IOException
-    {
-      this.info("generating icons");
-      this.generateIcon32();
-      this.generateIcon48();
-      this.generateIcon64();
-      this.generateIcon128();
-      this.generateIcon16();
-
-      this.generateIco();
-    }
-
-    private void generateIco()
-      throws IOException
-    {
-      final var images =
-        List.of(
-          ImageIO.read(this.outIcon128.toFile()),
-          ImageIO.read(this.outIcon48.toFile()),
-          ImageIO.read(this.outIcon32.toFile()),
-          ImageIO.read(this.outIcon16.toFile())
+        final var srcIcon =
+          this.dirSource.resolve(icon.image);
+        final var outIcon =
+          this.dirOutput.resolve("%s%d.png".formatted(icon.id, size));
+        generateIconPNG(
+          size.intValue(),
+          this.srcEmblem,
+          srcIcon,
+          outIcon
         );
+        created.add(ImageIO.read(outIcon.toFile()));
+      }
 
-      ICOEncoder.write(images, this.outIco.toFile());
-    }
+      final var outIco =
+        this.dirOutput.resolve("%s.ico".formatted(icon.id));
 
-    private void generateIcon16()
-      throws IOException
-    {
-      this.info("generating 16x16 icon");
-      scaleDownIcon(
-        16,
-        this.outIcon32,
-        this.outIcon16
-      );
+      ICOEncoder.write(created, outIco.toFile());
     }
 
     private static void scaleDownIcon(
@@ -438,11 +394,19 @@ public final class Make
       gline1.dispose();
 
       final var gemblem = image.createGraphics();
-      gemblem.translate(size, size);
-      gemblem.translate(-4, -4);
-      gemblem.translate(-18, -18);
-      gemblem.drawImage(srcEmblemImage, 0, 0, 18, 18, null);
-      gemblem.dispose();
+      if (size <= 16) {
+        gemblem.translate(size, size);
+        gemblem.translate(-2, -2);
+        gemblem.translate(-9, -9);
+        gemblem.drawImage(srcEmblemImage, 0, 0, 9, 9, null);
+        gemblem.dispose();
+      } else {
+        gemblem.translate(size, size);
+        gemblem.translate(-4, -4);
+        gemblem.translate(-18, -18);
+        gemblem.drawImage(srcEmblemImage, 0, 0, 18, 18, null);
+        gemblem.dispose();
+      }
 
       ImageIO.write(image, "PNG", outPNG.toFile());
     }
