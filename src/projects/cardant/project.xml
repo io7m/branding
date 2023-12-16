@@ -4,4 +4,8 @@
   <entry key="description">Inventory system.</entry>
   <entry key="source">https://pxhere.com/en/photo/1433359</entry>
   <entry key="url">https://www.io7m.com/software/cardant/</entry>
+
+  <entry key="books">documentation</entry>
+  <entry key="books.documentation.cover">documentation.png</entry>
+  <entry key="books.documentation.title">Cardant User Manual</entry>
 </properties>
