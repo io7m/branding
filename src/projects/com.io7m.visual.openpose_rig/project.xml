@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <entry key="description">OpenPose Blender rigs.</entry>
+  <entry key="source">background.png</entry>
+  <entry key="url">https://www.github.com/io7m/com.io7m.visual.openpose_rig</entry>
+</properties>
