@@ -41,6 +41,7 @@ idstore_trafficgen
 ieee754b16
 immutables-vavr
 ironsegment
+ironsegment-py
 ironstrata
 jaccord
 jade
