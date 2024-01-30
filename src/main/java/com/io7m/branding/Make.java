@@ -302,7 +302,7 @@ public final class Make
       this.info("generating icons for %s", icon.id);
 
       final var sizes =
-        List.of(16, 32, 48, 64, 128);
+        List.of(16, 24, 32, 48, 64, 128);
 
       final var created =
         new ArrayList<BufferedImage>();
@@ -399,6 +399,12 @@ public final class Make
         gemblem.translate(-2, -2);
         gemblem.translate(-9, -9);
         gemblem.drawImage(srcEmblemImage, 0, 0, 9, 9, null);
+        gemblem.dispose();
+      } else if (size <= 24) {
+        gemblem.translate(size, size);
+        gemblem.translate(-2, -2);
+        gemblem.translate(-18, -18);
+        gemblem.drawImage(srcEmblemImage, 0, 0, 18, 18, null);
         gemblem.dispose();
       } else {
         gemblem.translate(size, size);
