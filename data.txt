@@ -97,11 +97,13 @@ jwheatsheaf
 jxe
 jxtrand
 lanark
+laurel
 looseleaf
 medrina
 mesquida
 mime2045
 minisite
+mirasol
 modulechaser
 naranja
 northpike
@@ -150,4 +152,3 @@ xstructural
 york-font
 zelador
 zeptoblog
-laurel
